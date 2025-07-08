@@ -47,7 +47,10 @@ $(function () {
 // カレンダー
 let currentDate = new Date();
 let targetInput = null;
+<<<<<<< HEAD
 let selectedDate = null;
+=======
+>>>>>>> origin/main
 
 // カレンダー関数
 function createCalendar(date) {
@@ -75,6 +78,7 @@ function createCalendar(date) {
     }
 
     for (let day = 1; day <= lastDate; day++) {
+<<<<<<< HEAD
         let className = "day";
 
         if (
@@ -87,6 +91,9 @@ function createCalendar(date) {
         }
 
         html += `<td class="${className}">${day}</td>`;
+=======
+        html += `<td class="day">${day}</td>`;
+>>>>>>> origin/main
         if ((firstDay + day) % 7 === 0) {
             html += "</tr><tr>";
         }
@@ -96,6 +103,7 @@ function createCalendar(date) {
 
     $(".custom_calendar").html(html);
 }
+<<<<<<< HEAD
 // inputのバリューを取得する関数
 function getInputDate(value) {
     const input_date = value.match(/(\d{4})年(\d{2})月(\d{2})日/);
@@ -105,6 +113,10 @@ function getInputDate(value) {
 }
 
 // カレンダーボタン
+=======
+
+// ボタン
+>>>>>>> origin/main
 $(".prev").on("click", function () {
     currentDate.setMonth(currentDate.getMonth() - 1);
     createCalendar(currentDate);
@@ -115,6 +127,7 @@ $(".next").on("click", function () {
     createCalendar(currentDate);
 });
 
+<<<<<<< HEAD
 // カレンダー表示
 $("input.calendar").on("click", function () {
     $(".calendar_wrapper").hide();
@@ -131,6 +144,12 @@ $("input.calendar").on("click", function () {
         currentDate = new Date();
     }
 
+=======
+$("input.calendar").on("click", function () {
+    $(".calendar_wrapper").hide();
+    targetInput = this;
+
+>>>>>>> origin/main
     $(this).closest(".input_parts").find(".calendar_wrapper").css({
         display: "flex",
     });
@@ -138,7 +157,11 @@ $("input.calendar").on("click", function () {
     createCalendar(currentDate);
 });
 
+<<<<<<< HEAD
 // inputに反映
+=======
+// input に反映
+>>>>>>> origin/main
 $(document).on("click", ".day", function () {
     $(".day").removeClass("selected");
     $(this).addClass("selected");
@@ -149,19 +172,28 @@ $(document).on("click", ".day", function () {
     const formatted = `${year}年${String(month).padStart(2, "0")}月${String(
         day
     ).padStart(2, "0")}日`;
+<<<<<<< HEAD
     selectedDate = new Date(
         currentDate.getFullYear(),
         currentDate.getMonth(),
         day
     );
+=======
+>>>>>>> origin/main
 
     if (targetInput) {
         $(targetInput).val(formatted);
     }
+<<<<<<< HEAD
     $(".calendar_wrapper").hide();
 });
 
 // カレンダーを閉じる
+=======
+});
+
+// 閉じる
+>>>>>>> origin/main
 $(document).on("click", function (e) {
     if (!$(e.target).closest(".calendar_wrapper, input.calendar").length) {
         $(".calendar_wrapper").hide();
